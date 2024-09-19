@@ -175,7 +175,7 @@ def Generator():
 
   return tf.keras.Model(inputs=inputs, outputs=x)
   
-generator = load_model("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\h5_file\\pix2pix_h5\\generatorw.h5")
+generator = load_model("AI_part/h5_file/pix2pix_h5/generatorw.h5")
 
 LAMBDA = 100
 
@@ -219,7 +219,7 @@ def Discriminator():
 
   return tf.keras.Model(inputs=[inp, tar], outputs=last)
   
-discriminator = load_model("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\h5_file\\pix2pix_h5\\discriminatorw.h5")
+discriminator = load_model("AI_part/h5_file/pix2pix_h5/discriminatorw.h5")
 
 #disc_out = discriminator([inp[tf.newaxis, ...], gen_output], training=False)
 #plt.imshow(disc_out[0, ..., -1], vmin=-20, vmax=20, cmap='RdBu_r')
@@ -258,9 +258,9 @@ def generate_images(model, test_input, tar):
     plt.imshow(display_list[i] * 0.5 + 0.5)
     plt.axis('off')
   #plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\0.jpg')
-  files_save = os.listdir('C:\\Users\\user\\Desktop\django\\AI_generated_face_project_02\\album\\AI_part\\Combine_pictures\\')
+  files_save = os.listdir('AI_part/Combine_pictures/')
   for j in files_save:
-    plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\pix2pix.jpg')
+    plt.savefig('temp/pix2pix.jpg')
   #plt.show()
   
 EPOCHS = 1
