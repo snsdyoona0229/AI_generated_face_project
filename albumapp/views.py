@@ -9,7 +9,7 @@ import sys
 import shutil
 from django.contrib import messages
 import pathlib
-sys.path.append('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\')
+sys.path.append('AI_part')
 import webbrowser
 import Data_pre_processing
 import output_test
