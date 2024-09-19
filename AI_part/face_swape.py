@@ -9,7 +9,7 @@ import sys
 offlineSwap = False
 iFaceMod = 0
 
-PREDICTOR_PATH = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\shape_predictor_68_face_landmarks.dat"
+PREDICTOR_PATH = "AI_part/shape_predictor_68_face_landmarks.dat"
 SCALE_FACTOR = 1 
 FEATHER_AMOUNT = 11
 
@@ -171,9 +171,9 @@ def correct_colours(im1, im2, landmarks1):
     return (im2.astype(numpy.float64) * im1_blur.astype(numpy.float64) /
                                                 im2_blur.astype(numpy.float64))
 
-fn1 = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\temp.jpg" #sys.argv[1]
-fn2 = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\temp.jpg"    #sys.argv[2]
-fnOutput = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\output_Camera.jpg" 
+fn1 = "temp/temp.jpg" #sys.argv[1]
+fn2 = "temp/temp.jpg"    #sys.argv[2]
+fnOutput = "temp/output_Camera.jpg" 
 
 if offlineSwap:
     im1, landmarks1 = read_im_and_landmarks(fn1)
