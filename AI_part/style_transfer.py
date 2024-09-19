@@ -7,8 +7,8 @@ from PIL import Image
 
 
 
-StylePath ='C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\'
-ContentPath = 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\'
+StylePath ='temp'
+ContentPath = 'temp'
 content_path = ContentPath+'content_path.jpg'
 style_path = StylePath+'style_path.jpg'
 
@@ -202,7 +202,7 @@ for i in range(0,num_iterations,1):
            imshow(style_img, 'Style Image')
            plt.subplot(1, 3, 3)
            imshow(np.squeeze(generate_image.read_value(), 0), 'New Image - Step'+str(i))
-           plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\style_transfer.jpg')
+           plt.savefig('temp/style_transfer.jpg')
            
            
 
