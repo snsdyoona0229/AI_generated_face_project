@@ -8,7 +8,7 @@ import torch.utils.model_zoo as modelzoo
 import os
 import sys
 
-sys.path.append('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\')
+sys.path.append('AI_part/face-makeup.PyTorch-master')
 # from modules.bn import InPlaceABNSync as BatchNorm2d
 
 resnet18_url = 'https://download.pytorch.org/models/resnet18-5c106cde.pth'
