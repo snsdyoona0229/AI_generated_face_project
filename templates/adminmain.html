@@ -1,0 +1,35 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+{% load extras %}
+
+{% block script %}
+  <script type="text/javascript">
+    function confirmLink(message) { //v1.0
+	  if(message == "") message = "確定";	
+    	document.returnValue = confirm(message);
+    }
+  </script>
+{% endblock %}
+
+{% block content %}
+  <div class="subjectDiv"> 管理界面 </div>
+  <div class="actionDiv">總數:{{totalalbum}} | <a href="/adminadd/">新增</a></div>  
+  <div class="normaldesc"></div>
+  {% for album in albums %}
+    <div class="albumDiv">
+      <div class="picDiv">
+        {% if lengths|extras:forloop.counter0 == 0 %}
+          <img src="{% static "images/nopic.png" %}" alt="暫無圖片" width="120" height="120" border="0" />
+        {% else %}
+          <a href="/adminfix/{{album.id}}/"><img src="/media/{{photos|extras:forloop.counter0}}" width="120" height="120" border="0" /></a>
+        {% endif %}
+      </div>
+      <div class="albuminfo">
+        <a href="/adminfix/{{album.id}}/">{{album.atitle}}</a><br />
+        <span class="smalltext">共 {{lengths|extras:forloop.counter0}} 張</span><br>
+        <a href="/adminmain/{{album.id}}/" class="smalltext" 
+          onClick="confirmLink('您確定要刪除這介面嗎？'); return document.returnValue">(刪除介面)</a><br>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

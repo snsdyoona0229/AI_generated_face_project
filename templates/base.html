@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>生成式網路應用GAN</title>
+	{% load static %}
+	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#cccccc">
+	<table width="785" border="0" align="center" cellpadding="0" cellspacing="0">
+	  <tr>
+		<td height="124" valign="top">
+		  <div class="titleDiv"> [生成式網路應用GAN]<br /></div>
+		  <div class="menulink">
+			<a href="/index/">[首頁]</a> 
+			<a href="/login/">[管理]</a>
+		  </div>
+		</td>
+	  </tr>
+	  <tr>
+		<td background="{% static "images/album_r2_c1.jpg" %}">
+		  <div id="mainRegion">
+			  <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
+				<tr>
+				   <td>
+					 {% block content %}{% endblock %}
+				  </td>
+			   </tr>
+			  </table>
+			</div>
+		  </td>
+	  </tr>
+	  <tr>
+		<td align="center" background="{% static "images/album_r2_c1.jpg" %}" class="trademark"></td>
+	  </tr>
+	  <tr>
+		<td><img name="album_r4_c1" src="{% static "images/album_r4_c1.jpg" %}" width="778" height="24" border="0" id="album_r4_c1" alt="" /></td>
+	  </tr>
+	</table>
+</body>
+</html>

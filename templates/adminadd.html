@@ -1,0 +1,26 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="subjectDiv"> 管理界面-新增介面</div>
+    <div class="normalDiv">
+      <form action="." method="POST" name="form1" id="form1">
+       {% csrf_token %}
+       <p>名稱：
+         <input type="text" name="album_title" id="album_title" required />
+       </p>
+       <p>：
+         <input type="text" name="album_location" id="album_location" />
+       </p>
+       <p>說明：
+         <textarea name="album_desc" id="album_desc" cols="45" rows="5"></textarea>
+       </p>
+       <p>&nbsp;</p>
+       <p>
+         <input type="submit" name="button" id="button" value="確定新增" />
+         <input type="button" name="button2" id="button2" value="回上一頁" onClick="window.history.back();" />
+       </p>
+       <!--<span style="color:red">{{message}}</span>-->
+     </form>
+   </div>
+{% endblock %}

@@ -1,0 +1,183 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block script %}
+  <script type="text/javascript">
+    function confirmLink(message) {
+      if(message == "") message = "確定";	
+      	document.returnValue = confirm(message);
+      }
+	function updateTextInput01(val) {
+          document.getElementById('textInput01').value=val; 
+    }
+	function updateTextInput02(val) {
+          document.getElementById('textInput02').value=val; 
+    }
+	function updateTextInput03(val) {
+          document.getElementById('textInput03').value=val; 
+    }
+	function updateTextInput04(val) {
+          document.getElementById('textInput04').value=val; 
+    }
+	function updateTextInput05(val) {
+          document.getElementById('textInput05').value=val; 
+    }
+	function updateTextInput06(val) {
+          document.getElementById('textInput06').value=val; 
+    }
+	function updateTextInput07(val) {
+          document.getElementById('textInput07').value=val; 
+    }
+	function updateTextInput08(val) {
+          document.getElementById('textInput08').value=val; 
+    }
+	function updateTextInput09(val) {
+          document.getElementById('textInput09').value=val; 
+    }
+	
+
+
+  </script>
+<head>
+  <style type="text/css">
+    h2{
+      color: red;
+    }
+	
+
+  </style>
+</head>
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="subjectDiv"> 管理界面-修改資訊</div>
+    <div class="actionDiv">總數:{{totalphoto}} </div>
+    <form action="/adminfix/{{album.id}}/999999/" method="POST" name="form1" id="form1" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="normalDiv">
+        <p class="heading">內容</p>
+        <p>名稱：
+          <input name="album_title" type="text" id="album_title" value="{{album.atitle}}" />        
+        </p>
+        <p>說明：
+          <input name="album_location" type="text" id="album_location" value="{{album.alocation}}" />
+        </p>
+        <p>說明：
+          <textarea name="album_desc" id="album_desc" cols="45" rows="5">{{album.adesc}}</textarea>
+        </p>
+      </div>
+      <hr />
+      <div class="normalDiv">
+        <p class="heading">新增圖片</p>
+        <div class="clear"></div>
+        <p>圖片
+          <input type="file" name="ap_picurl1" id="ap_picurl1">
+          標題：
+          <input type="text" name="ap_subject1" id="ap_subject1" /></p>
+        <p>&nbsp;</p>
+        <p>
+		  <!-- 選擇生成圖片方式 -->
+		  <div>
+		  <p class="heading">功能一:臉部合成</p>
+          <input type="radio" name="model" value="face_swape" />
+          <label for="model">face_swape</label>
+		    <p class="heading">功能二:選擇訓練模型生成人臉</p>
+		        <input type="radio" name="model" value="pix2pix" />
+                <label for="model">pix2pix_GAN</label>
+
+                <input type="radio" name="model" value="CycleGAN" />
+                <label for="model">CycleGAN</label>
+				
+				<input type="radio"  name="model" value="StyleGAN" />
+                <label for="model">StyleGAN(程式碼測試中可以嘗試操作)</label>
+				<br>
+				<p>***CycleGAN請選擇你生成的條件***</p>
+				<input type="radio" name="CycleGAN_condition" value="anime" />
+                <label for="model">動漫人物生成真實人臉</label>
+				<input type="radio" name="CycleGAN_condition" value="humen" />
+                <label for="model">真實人臉生成動漫人物</label>
+			<p class="heading">功能三:選擇模型臉部上妝</p>
+			    <input type="radio"  name="model" value="BiSeNet" />
+                <label for="model">BiSeNet</label>
+				
+				<input type="radio"  name="model" value="Dlib" />
+                <label for="model">Dlib</label>
+				<p class="heading">眉毛顏色</p>
+				<p>紅色R:</p>
+               <input type="range" name="rangeInput01" min="0" max="255" onchange="updateTextInput01(this.value);">
+               <input type="text" name="textInput01" id="textInput01" value="68">
+			   <p>綠色G:</p>
+               <input type="range" name="rangeInput02" min="0" max="255" onchange="updateTextInput02(this.value);">
+               <input type="text" name="textInput02" id="textInput02" value="54">
+			   <p>藍色B:</p>
+               <input type="range" name="rangeInput03" min="0" max="255" onchange="updateTextInput03(this.value);">
+               <input type="text" name="textInput03" id="textInput03" value="39">
+			   <p class="heading">嘴唇顏色</p>
+				<p>紅色R:</p>
+               <input type="range" name="rangeInput04" min="0" max="255" onchange="updateTextInput04(this.value);">
+               <input type="text" name="textInput04"id="textInput04" value="150">
+			   <p>綠色G:</p>
+               <input type="range" name="rangeInput05" min="0" max="255" onchange="updateTextInput05(this.value);">
+               <input type="text" name="textInput05" id="textInput05" value="0">
+			   <p>藍色B:</p>
+               <input type="range" name="rangeInput06" min="0" max="255" onchange="updateTextInput06(this.value);">
+               <input type="text" name="textInput06" id="textInput06" value="0">
+			   <p class="heading">眼睛顏色</p>
+				<p>紅色R:</p>
+               <input type="range" name="rangeInput07" min="0" max="255" onchange="updateTextInput07(this.value);">
+               <input type="text" name="textInput07" id="textInput07" value="255">
+			   <p>綠色G:</p>
+               <input type="range" name="rangeInput08" min="0" max="255" onchange="updateTextInput08(this.value);">
+               <input type="text" name="textInput08" id="textInput08" value="255">
+			   <p>藍色B:</p>
+               <input type="range" name="rangeInput09" min="0" max="255" onchange="updateTextInput09(this.value);">
+               <input type="text" name="textInput09" id="textInput09" value="255">
+		  </div>
+		  <p class="heading">功能四:臉部圖像分析</p>
+		  
+		  <h3>圖像相似度比較、影像風格轉換</h3>
+		  <input type="radio" name="model" value="style_transfer" />
+          <label for="model">style_transfer</label>
+		  
+		  <input type="radio" name="model" value="face_similarity" />
+          <label for="model">face_similarity</label>
+		  <p>比較圖像一(本人照片)
+          <input type="file" name="ap_picurl2" id="ap_picurl2">
+          標題：
+          <input type="text" name="ap_subject2" id="ap_subjec2" /></p>
+		  <p>比較圖像二(風格、明星照片)
+          <input type="file" name="ap_picurl3" id="ap_picurl3">
+          標題：
+          <input type="text" name="ap_subject3" id="ap_subjec3" /></p>
+		  <!-- 選擇生成圖片方式 -->
+		  <br>
+          <input type="submit" name="button" id="button" value="人臉生成資料與分析" onclick="myFunction()"/>
+
+		 
+        </p>
+      </div>
+    </form>
+    {{message}}
+    <hr />
+    <div class="normalDiv">
+      <p class="heading">管理圖像</p>
+      {% for photo in photos %}
+        <div class="albumDiv">
+          <div class="picDiv"><img src="/media/{{photo.purl}}/" width="120" height="120" border="0" /></div>
+          <div class="albuminfo">
+            <form action="/adminfix/{{photo.palbum.id}}/{{photo.id}}/update/" method="POST" name="form3" id="form3">
+              {% csrf_token %}
+              <input name="ap_subject" type="text" id="ap_subject" value="{{photo.psubject}}" size="10" />
+              <input type="submit" name="button3" id="button3" value="更新">
+              <br>
+              <a href="/adminfix/{{photo.palbum.id}}/{{photo.id}}/delete/" onClick="confirmLink('確定要刪除這張圖片嗎？'); return document.returnValue">刪除圖片</a>
+            </form>
+            <p><br />
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

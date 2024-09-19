@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="subjectDiv"> 登入 </div>             
+    <div class="albumdesc">
+      <form action="." id="form1" name="form1" method="POST">
+        {% csrf_token %}
+        <table border="0" align="center" cellpadding="4" cellspacing="0">
+          <tr>
+            <td><p>管理者帳號</p></td>
+            <td><p>
+              <input type="text" name="username" id="username" />
+              </p></td>
+            </tr>
+          <tr>
+            <td><p>管理者密碼</p></td>
+            <td><p>
+              <input type="password" name="passwd" id="passwd" />
+              </p></td>
+            </tr>
+          <tr>
+            <td colspan="2" align="center"><p>
+              <input type="submit" name="button" id="button" value="登入管理" />
+              <input type="button" name="button2" id="button2" value="回上一頁" onClick="window.history.back();" />
+              </p></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+{% endblock %}
