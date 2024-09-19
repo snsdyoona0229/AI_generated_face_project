@@ -15,7 +15,7 @@ import cv2
 import numpy as np
 import sys
 
-sys.path.append('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\')
+sys.path.append('AI_part')
 
 #from Data_pre_processing import extract_faces,save_extract_face,reshape_for_polyline, prepare_training_data,Combine_pictures
 import Data_pre_processing
@@ -42,14 +42,14 @@ def extract_faces(source,destination,detector):
             counter += 1
 def save_extract_face():
     detector = MTCNN()
-    extract_faces('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\','C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_faces_MTCNN\\',detector)
+    extract_faces('temp','AI_part/extract_faces_MTCNN',detector)
 
 
 #capture_facial_contours(2)--------------------------------------------------------------
 DOWNSAMPLE_RATIO = 4 
 photo_number = 400 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\shape_predictor_68_face_landmarks.dat')
+predictor = dlib.shape_predictor('AI_part/shape_predictor_68_face_landmarks.dat')
 
 def reshape_for_polyline(array):
     return np.array(array, np.int32).reshape((-1, 1, 2))
@@ -58,8 +58,8 @@ def prepare_training_data():
     DOWNSAMPLE_RATIO = 4 
     photo_number = 400 
     detector = dlib.get_frontal_face_detector()
-    predictor = dlib.shape_predictor('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\shape_predictor_68_face_landmarks.dat')
-    path2= 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_faces_MTCNN\\'
+    predictor = dlib.shape_predictor('AI_part/shape_predictor_68_face_landmarks.dat')
+    path2= 'AI_part/extract_faces_MTCNN/'
     result =[f for f in os.listdir(path2) if os.path.isfile(os.path.join(path2,f))]
     count = 0
     for i in range(0,len(result),1) :
@@ -98,16 +98,16 @@ def prepare_training_data():
                               thickness=thickness)
                               
                           # 保存圖片
-            path_address = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_contours_MTCNN\\"+result[i]
+            path_address = "AI_part/extract_contours_MTCNN/"+result[i]
             cv2.imwrite(path_address,black_image)
             count += 1
 
 #Combine_pictures(3)--------------------------------------------------------------
 
 def Combine_pictures():
-  #path1 ='C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\media\\'
-  path2 = 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_faces_MTCNN\\'
-  path3= 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_contours_MTCNN\\'
+  #path1 ='media'
+  path2 = 'AI_part/extract_faces_MTCNN'
+  path3= 'AI_part/extract_contours_MTCNN'
   #media =os.listdir(path1)
   result =[f for f in os.listdir(path2) if os.path.isfile(os.path.join(path2,f))]
   result2 =[d for d in os.listdir(path3) if os.path.isfile(os.path.join(path3,d))]
@@ -118,4 +118,4 @@ def Combine_pictures():
     img1 = cv2.imread(path2 + intersection_set[i])
     img2 = cv2.imread(path3 + intersection_set[i])
     vis = np.concatenate((img1, img2), axis=1)
-    cv2.imwrite('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Combine_pictures\\image_temp.jpg',vis)
+    cv2.imwrite('AI_part/Combine_pictures/image_temp.jpg',vis)
