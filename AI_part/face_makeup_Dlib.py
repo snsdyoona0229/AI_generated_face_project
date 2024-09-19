@@ -5,7 +5,7 @@ import dlib
 
 def Dlib_face_makeup(color_01,color_02,color_03,color_04,color_05,color_06,color_07,color_08,color_09):
 
-  image = face_recognition.load_image_file('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\temp.jpg')
+  image = face_recognition.load_image_file('temp/temp.jpg')
 
   # Find all facial features in all the faces in the image
   face_landmarks_list = face_recognition.face_landmarks(image)
@@ -34,4 +34,4 @@ def Dlib_face_makeup(color_01,color_02,color_03,color_04,color_05,color_06,color
     d.line(face_landmarks['right_eye'] + [face_landmarks['right_eye'][0]], fill=(0, 0, 0, 110), width=6)
 
     #pil_image.show()
-    pil_image.save('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face_makeup_Dlib\\Dlib.jpg')
+    pil_image.save('face_makeup_Dlib/Dlib.jpg')
