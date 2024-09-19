@@ -4,7 +4,7 @@ import numpy as np
 from skimage.filters import gaussian
 import os
 import sys
-sys.path.append('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\')
+sys.path.append('AI_part/face-makeup.PyTorch-master')
 from test import evaluate
 import argparse
 
@@ -75,8 +75,8 @@ def make_up_run():
         'eye_g':7,
     }
 
-    image_path = 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp\\temp.jpg'
-    cp = 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\cp\\79999_iter.pth'
+    image_path = 'temp/temp.jpg'
+    cp = 'AI_part/face-makeup.PyTorch-master/cp/79999_iter.pth'
 
     image = cv2.imread(image_path)
     ori = image.copy()
@@ -86,7 +86,7 @@ def make_up_run():
     parts = [table['upper_lip'], table['lower_lip'], table['l_brow'], table['r_brow'],table['l_eye'], table['r_eye']]
     #[table['upper_lip'], table['lower_lip'], table['l_brow'], table['r_brow'],table['l_eye'], table['r_eye'], table['eye_g']]
     #colors = [[230, 50, 20], [20, 70, 180], [20, 70, 180]]
-    cc = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\color_temp.txt", "r")
+    cc = open("AI_part/face-makeup.PyTorch-master/color_temp.txt", "r")
     color_read = cc.read()
     color_num = color_read.split(",")
     
@@ -98,10 +98,10 @@ def make_up_run():
     #cv2.imshow('image', cv2.resize(ori, (512, 512)))
     #cv2.imshow('color', cv2.resize(image, (512, 512)))
     
-    file_num = len(os.listdir('C:\\Users\\user\\Desktop\django\\AI_generated_face_project_02\\album\\media\\'))
-    cv2.imwrite('C:\\Users\\user\\Desktop\django\\AI_generated_face_project_02\\album\\media\\'+str(file_num)+'.jpg', image)
+    file_num = len(os.listdir('media'))
+    cv2.imwrite('media/'+str(file_num)+'.jpg', image)
     #==Upload files, file processing==#
-    f = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "w")
+    f = open("temp02.txt", "w")
     f.write(str(file_num)+'.jpg')
     f.close()
     #==Upload files, file processing==#
