@@ -483,7 +483,7 @@ def gen_images(test_dataset, file_path):
   
 def CycleGAN_humen_anime(generator_class):
     dataset_root_path = "C:\\Users\\user\\Desktop\\Cyclegan_face_style\\"
-    dataset_root_path_test = "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\extract_faces_MTCNN\\"
+    dataset_root_path_test = "AI_part/extract_faces_MTCNN"
 
     # get all subfolders that contain images
     train_a_path = pathlib.Path(os.path.join(dataset_root_path, "trainB"))
@@ -525,9 +525,9 @@ def CycleGAN_humen_anime(generator_class):
           out_image = tf.cast(out_image, tf.uint8)
 
        plt.imshow(input_image)
-       plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_anime\\anime.jpg')
+       plt.savefig('AI_part/Cycle_GAN/cycle_anime/anime.jpg')
        plt.imshow(out_image)
-       plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_humen\\cycle_humen.jpg')
+       plt.savefig('AI_part/Cycle_GAN/cycle_humen/cycle_humen.jpg')
     
     if generator_class =='anime':
        for t in range(0,5,1):
@@ -543,15 +543,15 @@ def CycleGAN_humen_anime(generator_class):
           out_image = tf.cast(out_image, tf.uint8)
 
        plt.imshow(input_image)
-       plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_humen\\cycle_humen.jpg')
+       plt.savefig('AI_part/Cycle_GAN/cycle_humen/cycle_humen.jpg')
        plt.imshow(out_image)
-       plt.savefig('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_anime\\anime.jpg')
+       plt.savefig('AI_part/Cycle_GAN/cycle_anime\\anime.jpg')
        
        
 def Combine_pictures():
-  #path1 ='C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\media\\'
-  path2 = 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_humen\\cycle_humen.jpg'
-  path3= 'C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\Cycle_GAN\\cycle_anime\\anime.jpg'
+  #path1 ='media'
+  path2 = 'AI_part/Cycle_GAN/cycle_humen/cycle_humen.jpg'
+  path3= 'AI_part/Cycle_GAN/cycle_anime/anime.jpg'
 
   img1 = cv2.imread(path2)
   img2 = cv2.imread(path3 )
