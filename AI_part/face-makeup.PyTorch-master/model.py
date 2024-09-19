@@ -9,7 +9,7 @@ import torchvision
 import os
 import sys
 
-sys.path.append('C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\')
+sys.path.append('AI_part/face-makeup.PyTorch-master')
 
 from resnet import Resnet18
 # from modules.bn import InPlaceABNSync as BatchNorm2d
