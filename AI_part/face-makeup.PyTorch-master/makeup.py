@@ -3,6 +3,7 @@ import os
 import numpy as np
 from skimage.filters import gaussian
 import os
+
 import sys
 sys.path.append('AI_part/face-makeup.PyTorch-master')
 from test import evaluate
@@ -101,7 +102,7 @@ def make_up_run():
     file_num = len(os.listdir('media'))
     cv2.imwrite('media/'+str(file_num)+'.jpg', image)
     #==Upload files, file processing==#
-    f = open("temp02.txt", "w")
+    f = open("temp_files_info/temp02.txt", "w")
     f.write(str(file_num)+'.jpg')
     f.close()
     #==Upload files, file processing==#
