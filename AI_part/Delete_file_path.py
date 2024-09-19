@@ -15,14 +15,14 @@ def apple():
         os.remove(os.path.join('media/'+i[0] ))
         
 def ball(file,class_ai,style_transfer):
-#    f = open("temp.txt", "r")
+#    f = open("temp_files_info/temp.txt", "r")
 #    R = f.read()
 
     if class_ai =="face_similarity":
-       temp_face_x = open("temp_x.txt", "r")
+       temp_face_x = open("temp_files_info/temp_x.txt", "r")
        m01 = temp_face_x.read()
        
-       temp_face_y = open("temp_y.txt", "r")
+       temp_face_y = open("temp_files_info/temp_y.txt", "r")
        m02 = temp_face_y.read()
                     
        shutil.copy('media/'+m01,os.path.join('temp/content_path.jpg'))
