@@ -156,11 +156,11 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                     unit.save()
                     if str(model_AI) == 'face_similarity':
                        if i == 0:
-                          f = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp_x.txt", "w")
+                          f = open("temp_x.txt", "w")
                           f.write(str(upfile))
                           f.close()
                        if i == 1:
-                          f = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp_y.txt", "w")
+                          f = open("temp_y.txt", "w")
                           f.write(str(upfile))
                           f.close()
                     
@@ -177,7 +177,7 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                face_similarity.face_similarity_compare()
                
                Delete_file_path.remove_file(str(model_AI))
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                face_similarity_s = models.AlbumModel.objects.all()[7]
                face_similarity_g = models.PhotoModel.objects.create(palbum=face_similarity_s, psubject='face_similarity', purl=str(m))  #寫入資料庫 
@@ -187,9 +187,9 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
             
                style = []            
                Delete_file_path.ball(str(up_file),str(model_AI),style)
-               call(["python", "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face_swape.py"])
+               call(["python", "AI_part/face_swape.py"])
                Delete_file_path.remove_file(str(model_AI))
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                face_swape_s = models.AlbumModel.objects.all()[6]
                face_swape_g = models.PhotoModel.objects.create(palbum=face_swape_s, psubject='face_swape', purl=str(m))  #寫入資料庫 
@@ -203,7 +203,7 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                Data_pre_processing.Combine_pictures()
                output_test.count_img()#AI_detection
                Delete_file_path.remove_file(str(model_AI))
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                   
 
@@ -226,7 +226,7 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                face_makeup_Dlib.Dlib_face_makeup(int(textInput01),int(textInput02),int(textInput03),int(textInput04),int(textInput05),int(textInput06),int(textInput07),int(textInput08),int(textInput09))
                Delete_file_path.remove_file(str(model_AI))
                
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
 
                D = models.AlbumModel.objects.all()[2]
@@ -242,7 +242,7 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                Cycle_GAN.Combine_pictures()
                Delete_file_path.remove_file(str(model_AI))
               
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                
                
@@ -252,9 +252,9 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                
             if str(model_AI) == 'style_transfer':
                #style_transfer.train_style_transfer()
-               call(["python", "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\style_transfer.py"])
+               call(["python", "AI_part/style_transfer.py"])
                Delete_file_path.remove_file(str(model_AI))
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                style_transfer_s = models.AlbumModel.objects.all()[4]
                style_transfer_g = models.PhotoModel.objects.create(palbum=style_transfer_s, psubject='style_transfer', purl=str(m))  #寫入資料庫 
@@ -273,15 +273,15 @@ def adminfix(request, albumid=None, photoid=None, deletetype=None):  #相簿維�
                
                str_color = str(textInput01)+","+str(textInput02)+","+str(textInput03)+","+str(textInput04)+","+str(textInput05)+","+str(textInput06)+","+str(textInput07)+","+str(textInput08)+","+str(textInput09)
                
-               cc = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\color_temp.txt", "w")
+               cc = open("AI_part/face-makeup.PyTorch-master/color_temp.txt", "w")
                cc.write(str_color)
                cc.close()
             
                style = []            
                Delete_file_path.ball(str(up_file),str(model_AI),style)
-               call(["python", "C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\AI_part\\face-makeup.PyTorch-master\\makeup.py"])
+               call(["python", "AI_part/face-makeup.PyTorch-master/makeup.py"])
                Delete_file_path.remove_file(str(model_AI))
-               temp02 = open("C:\\Users\\user\\Desktop\\django\\AI_generated_face_project_02\\album\\temp02.txt", "r")
+               temp02 = open("temp02.txt", "r")
                m = temp02.read()
                BiSeNet_s = models.AlbumModel.objects.all()[5]
                BiSeNet_g = models.PhotoModel.objects.create(palbum=BiSeNet_s, psubject='BiSeNet', purl=str(m))  #寫入資料庫 
