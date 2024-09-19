@@ -86,7 +86,7 @@ def remove_file(select_model_item):
     if select_model_item =='style_transfer':
        file_num = len(os.listdir('media'))
        shutil.move('temp/style_transfer.jpg','media/'+str(file_num)+'.jpg')
-       f = open("temp02.txt", "w")
+       f = open("temp_files_info/temp02.txt", "w")
        f.write(str(file_num)+'.jpg')
        f.close()
        temp = os.listdir('temp')
@@ -101,7 +101,7 @@ def remove_file(select_model_item):
     if select_model_item =='face_swape':
        file_num = len(os.listdir('media'))
        shutil.move('temp/output_Camera.jpg','media/'+str(file_num)+'.jpg')
-       f = open("temp02.txt", "w")
+       f = open("temp_files_info/temp02.txt", "w")
        f.write(str(file_num)+'.jpg')
        f.close()
        temp = os.listdir('temp')
@@ -112,7 +112,7 @@ def remove_file(select_model_item):
     
        file_num = len(os.listdir('media'))
        shutil.move('temp/face_similarity_compare.jpg','media/'+str(file_num)+'.jpg')
-       f = open("album/temp02.txt", "w")
+       f = open("temp_files_info/temp02.txt", "w")
        f.write(str(file_num)+'.jpg')
        f.close()
        temp = os.listdir('album/temp')
@@ -127,7 +127,7 @@ def remove_file(select_model_item):
        temp = os.listdir('temp')
 
       #==Upload files, file processing==#
-       f = open("temp02.txt", "w")
+       f = open("temp_files_info/temp02.txt", "w")
        f.write(str(file_num)+'.jpg')
        f.close()
      #==Upload files, file processing==#
