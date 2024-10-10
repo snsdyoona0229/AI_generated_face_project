@@ -1,3 +1,5 @@
+# 本系統環境[生成式網路應用GAN]
+本系統環境tensorflow 2.17.0版本、python 3.12.3、PyTorch 2.4.1、NVIDIA CUDA 11.8、NVIDIA cuDNN NVIDIA 8.9.7 GeForce RTX 3060。
 # 介面介紹
 ![image](https://github.com/snsdyoona0229/AI_generated_face_project/blob/main/img/01.png)
 * 功能一:臉部合成
